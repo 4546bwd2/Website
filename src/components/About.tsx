@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Scissors, Star, MapPin } from "lucide-react";
+
+const backgroundImage = "/about-bg.png";
 
 // ── Barber Scissors Decorative ────────────────────────────
 function AliImagePlaceholder() {
@@ -74,12 +77,53 @@ function StatPill({ value, label }: { value: string; label: string }) {
 
 // ── About Section ─────────────────────────────────────────
 export default function About() {
+  const [imageOpacity, setImageOpacity] = useState(0.27);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById("about");
+      if (!aboutSection) return;
+
+      const rect = aboutSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
+
+      if (sectionTop < windowHeight && sectionTop + sectionHeight > 0) {
+        const progress = 1 - sectionTop / windowHeight;
+        const opacity = Math.max(0.27, Math.min(0.5, 0.27 + progress * 0.23));
+        setImageOpacity(opacity);
+      } else if (sectionTop >= windowHeight) {
+        setImageOpacity(0.27);
+      } else {
+        setImageOpacity(0.5);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
       id="about"
       className="relative py-24 lg:py-32 bg-[#1A1A1A] overflow-hidden"
       aria-label="About Mr. Ali section"
     >
+      {/* Background image */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: imageOpacity,
+          transition: "opacity 0.1s ease-out",
+        }}
+        aria-hidden="true"
+      />
+
       {/* Background radial */}
       <div
         className="absolute inset-0 z-0 opacity-40"
