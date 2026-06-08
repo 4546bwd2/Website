@@ -121,6 +121,7 @@ function ServiceCard({
           className="w-full h-40 object-cover rounded-sm cursor-pointer transition-all duration-300"
           style={{
             filter: isImageColor ? "grayscale(0%)" : "grayscale(100%)",
+            objectPosition: "center 30%",
           }}
           onMouseEnter={() => setIsImageColor(true)}
           onMouseLeave={() => setIsImageColor(false)}
