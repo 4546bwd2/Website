@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-import { Scissors, Star, MapPin } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Star, MapPin } from "lucide-react";
+
+const backgroundImage = "/about-bg.png";
 
 // ── Barber Scissors Decorative ────────────────────────────
 function AliImagePlaceholder() {
@@ -9,27 +12,26 @@ function AliImagePlaceholder() {
       role="img"
       aria-label="Mr. Ali smiling with scissors in his barbershop in Kuta, Bali"
     >
-      {/* Placeholder gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(135deg, #232323 0%, #1A1A1A 40%, #2a2200 100%)",
-        }}
+      {/* Mr. Ali photo */}
+      <img
+        src="/mr-ali.png"
+        alt="Mr. Ali smiling in his barbershop in Kuta, Bali"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ objectPosition: "32% center" }}
       />
 
-      {/* Decorative elements */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
-        {/* Large scissors icon */}
-        <motion.div
-          animate={{ rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="text-[#C9A84C]/30"
-        >
-          <Scissors size={80} strokeWidth={1} />
-        </motion.div>
+      {/* Bottom gradient for text legibility */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-2/5"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.6) 50%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Name plate */}
+      {/* Name plate & rating */}
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center gap-2 pb-6">
         <div className="text-center">
           <p
             className="font-playfair text-[#C9A84C] text-2xl font-bold"
@@ -37,7 +39,7 @@ function AliImagePlaceholder() {
           >
             Mr. Ali
           </p>
-          <p className="text-[#F5F0E8]/40 text-xs uppercase tracking-widest mt-1">
+          <p className="text-[#F5F0E8]/60 text-xs uppercase tracking-widest mt-1">
             Master Barber · Kuta, Bali
           </p>
         </div>
@@ -47,7 +49,7 @@ function AliImagePlaceholder() {
           {[...Array(5)].map((_, i) => (
             <Star key={i} size={14} className="text-[#C9A84C] fill-[#C9A84C]" />
           ))}
-          <span className="text-[#F5F0E8]/60 text-sm ml-1">4.9</span>
+          <span className="text-[#F5F0E8]/70 text-sm ml-1">4.9</span>
         </div>
       </div>
 
@@ -74,12 +76,53 @@ function StatPill({ value, label }: { value: string; label: string }) {
 
 // ── About Section ─────────────────────────────────────────
 export default function About() {
+  const [imageOpacity, setImageOpacity] = useState(0.27);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById("about");
+      if (!aboutSection) return;
+
+      const rect = aboutSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
+
+      if (sectionTop < windowHeight && sectionTop + sectionHeight > 0) {
+        const progress = 1 - sectionTop / windowHeight;
+        const opacity = Math.max(0.27, Math.min(0.5, 0.27 + progress * 0.23));
+        setImageOpacity(opacity);
+      } else if (sectionTop >= windowHeight) {
+        setImageOpacity(0.27);
+      } else {
+        setImageOpacity(0.5);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
       id="about"
       className="relative py-24 lg:py-32 bg-[#1A1A1A] overflow-hidden"
       aria-label="About Mr. Ali section"
     >
+      {/* Background image */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: imageOpacity,
+          transition: "opacity 0.1s ease-out",
+        }}
+        aria-hidden="true"
+      />
+
       {/* Background radial */}
       <div
         className="absolute inset-0 z-0 opacity-40"
