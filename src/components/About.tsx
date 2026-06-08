@@ -17,6 +17,7 @@ function AliImagePlaceholder() {
         src="/mr-ali.png"
         alt="Mr. Ali smiling in his barbershop in Kuta, Bali"
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ objectPosition: "32% center" }}
       />
 
       {/* Bottom gradient for text legibility */}
