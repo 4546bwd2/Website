@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Star, Quote } from "lucide-react";
+import backgroundImage from "/image_2026-06-08_210018748_(1).png";
 
 // ── Review Data ───────────────────────────────────────────
 const REVIEWS = [
@@ -183,7 +184,7 @@ export default function Reviews() {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: "url(/image_2026-06-08_210018748_(1).png)",
+          backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
