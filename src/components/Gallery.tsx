@@ -135,8 +135,8 @@ export default function Gallery() {
       {/* Background image overlay */}
       <motion.div
         className="absolute inset-0 z-0"
-        initial={{ filter: "grayscale(100%)", opacity: 0.05 }}
-        whileInView={{ filter: "grayscale(0%)", opacity: 0.15 }}
+        initial={{ filter: "grayscale(100%)", opacity: 0.2 }}
+        whileInView={{ filter: "grayscale(0%)", opacity: 0.35 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5 }}
         style={{
