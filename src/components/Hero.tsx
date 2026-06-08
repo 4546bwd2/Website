@@ -87,6 +87,15 @@ function HeroBackground() {
         aria-hidden="true"
       />
 
+      {/* Background image overlay */}
+      <div
+        className="absolute inset-0 z-0 opacity-10 bg-cover bg-center"
+        style={{
+          backgroundImage: `url("https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fb546910cbcb841939ce56bd4b96159e1?format=webp&width=800&height=1200")`,
+        }}
+        aria-hidden="true"
+      />
+
       {/* Grain texture */}
       <div
         className="absolute inset-0 z-0 opacity-20"
