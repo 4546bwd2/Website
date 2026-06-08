@@ -188,7 +188,6 @@ export default function Reviews() {
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
           opacity: imageOpacity,
           transition: "opacity 0.1s ease-out",
         }}
