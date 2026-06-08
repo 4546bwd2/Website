@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Scissors, Star, MapPin } from "lucide-react";
+import { Star, MapPin } from "lucide-react";
 
 const backgroundImage = "/about-bg.png";
 
@@ -12,27 +12,25 @@ function AliImagePlaceholder() {
       role="img"
       aria-label="Mr. Ali smiling with scissors in his barbershop in Kuta, Bali"
     >
-      {/* Placeholder gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(135deg, #232323 0%, #1A1A1A 40%, #2a2200 100%)",
-        }}
+      {/* Mr. Ali photo */}
+      <img
+        src="/mr-ali.png"
+        alt="Mr. Ali smiling in his barbershop in Kuta, Bali"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Decorative elements */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-6">
-        {/* Large scissors icon */}
-        <motion.div
-          animate={{ rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="text-[#C9A84C]/30"
-        >
-          <Scissors size={80} strokeWidth={1} />
-        </motion.div>
+      {/* Bottom gradient for text legibility */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-2/5"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.6) 50%, transparent 100%)",
+        }}
+        aria-hidden="true"
+      />
 
-        {/* Name plate */}
+      {/* Name plate & rating */}
+      <div className="absolute inset-x-0 bottom-0 flex flex-col items-center justify-center gap-2 pb-6">
         <div className="text-center">
           <p
             className="font-playfair text-[#C9A84C] text-2xl font-bold"
@@ -40,7 +38,7 @@ function AliImagePlaceholder() {
           >
             Mr. Ali
           </p>
-          <p className="text-[#F5F0E8]/40 text-xs uppercase tracking-widest mt-1">
+          <p className="text-[#F5F0E8]/60 text-xs uppercase tracking-widest mt-1">
             Master Barber · Kuta, Bali
           </p>
         </div>
@@ -50,7 +48,7 @@ function AliImagePlaceholder() {
           {[...Array(5)].map((_, i) => (
             <Star key={i} size={14} className="text-[#C9A84C] fill-[#C9A84C]" />
           ))}
-          <span className="text-[#F5F0E8]/60 text-sm ml-1">4.9</span>
+          <span className="text-[#F5F0E8]/70 text-sm ml-1">4.9</span>
         </div>
       </div>
 
