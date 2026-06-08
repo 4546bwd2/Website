@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Star, Quote } from "lucide-react";
+
+const backgroundImage = "/reviews-bg.png";
 
 // ── Review Data ───────────────────────────────────────────
 const REVIEWS = [
@@ -138,6 +141,33 @@ function ReviewCard({
 
 // ── Reviews Section ───────────────────────────────────────
 export default function Reviews() {
+  const [imageOpacity, setImageOpacity] = useState(0.27);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const reviewsSection = document.getElementById("reviews");
+      if (!reviewsSection) return;
+
+      const rect = reviewsSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
+
+      if (sectionTop < windowHeight && sectionTop + sectionHeight > 0) {
+        const progress = 1 - sectionTop / windowHeight;
+        const opacity = Math.max(0.27, Math.min(0.5, 0.27 + progress * 0.23));
+        setImageOpacity(opacity);
+      } else if (sectionTop >= windowHeight) {
+        setImageOpacity(0.27);
+      } else {
+        setImageOpacity(0.5);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section
       id="reviews"
@@ -153,10 +183,13 @@ export default function Reviews() {
 
       {/* Background radial */}
       <div
-        className="absolute inset-0 z-0 opacity-40"
+        className="absolute inset-0 z-0"
         style={{
-          backgroundImage:
-            "radial-gradient(ellipse 50% 40% at 50% 100%, rgba(201,168,76,0.05) 0%, transparent 60%)",
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: imageOpacity,
+          transition: "opacity 0.1s ease-out",
         }}
         aria-hidden="true"
       />
