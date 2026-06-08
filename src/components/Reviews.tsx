@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Star, Quote } from "lucide-react";
-import backgroundImage from "/image_2026-06-08_210018748_(1).png";
+
+const backgroundImage = "/reviews-bg.png";
 
 // ── Review Data ───────────────────────────────────────────
 const REVIEWS = [
@@ -154,12 +155,12 @@ export default function Reviews() {
 
       if (sectionTop < windowHeight && sectionTop + sectionHeight > 0) {
         const progress = 1 - sectionTop / windowHeight;
-        const opacity = Math.max(0.27, Math.min(1, 0.27 + progress * 0.73));
+        const opacity = Math.max(0.27, Math.min(0.5, 0.27 + progress * 0.23));
         setImageOpacity(opacity);
       } else if (sectionTop >= windowHeight) {
         setImageOpacity(0.27);
       } else {
-        setImageOpacity(1);
+        setImageOpacity(0.5);
       }
     };
 
@@ -187,7 +188,6 @@ export default function Reviews() {
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
           opacity: imageOpacity,
           transition: "opacity 0.1s ease-out",
         }}
