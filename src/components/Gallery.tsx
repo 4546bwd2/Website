@@ -1,0 +1,206 @@
+import { motion } from "framer-motion";
+import { Scissors, Mic2, Star, Heart, Zap, Coffee } from "lucide-react";
+
+// ── Gallery Placeholder Cards ─────────────────────────────
+const GALLERY_ITEMS = [
+  {
+    label: "Precision Fades",
+    icon: Scissors,
+    bg: "from-[#2a1f0a] to-[#1A1A1A]",
+    accent: "#C9A84C",
+    span: "col-span-1 row-span-2",
+  },
+  {
+    label: "Karaoke Sessions",
+    icon: Mic2,
+    bg: "from-[#1a0a2e] to-[#1A1A1A]",
+    accent: "#9B59B6",
+    span: "col-span-1",
+  },
+  {
+    label: "Hot Towel Shaves",
+    icon: Coffee,
+    bg: "from-[#0a1a2e] to-[#1A1A1A]",
+    accent: "#3498DB",
+    span: "col-span-1",
+  },
+  {
+    label: "Happy Customers",
+    icon: Heart,
+    bg: "from-[#2e0a0a] to-[#1A1A1A]",
+    accent: "#D94F3D",
+    span: "col-span-1",
+  },
+  {
+    label: "Sharp Edges",
+    icon: Zap,
+    bg: "from-[#0a2e1a] to-[#1A1A1A]",
+    accent: "#2ECC71",
+    span: "col-span-1",
+  },
+  {
+    label: "5-Star Results",
+    icon: Star,
+    bg: "from-[#2a1f0a] to-[#1A1A1A]",
+    accent: "#C9A84C",
+    span: "col-span-1",
+  },
+];
+
+// ── Gallery Card ──────────────────────────────────────────
+function GalleryCard({
+  item,
+  index,
+}: {
+  item: (typeof GALLERY_ITEMS)[0];
+  index: number;
+}) {
+  const Icon = item.icon;
+
+  return (
+    <motion.div
+      className={`relative ${item.span} rounded-sm overflow-hidden border border-[#F5F0E8]/5 hover:border-[#C9A84C]/30 transition-all duration-300 group cursor-default`}
+      style={{ minHeight: index === 0 ? "320px" : "150px" }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      whileHover={{ scale: 1.01 }}
+      role="img"
+      aria-label={`Gallery: ${item.label}`}
+    >
+      {/* Background */}
+      <div
+        className={`absolute inset-0 bg-gradient-to-br ${item.bg}`}
+        aria-hidden="true"
+      />
+
+      {/* Noise texture */}
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")`,
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6">
+        <div
+          className="p-4 rounded-full transition-transform duration-300 group-hover:scale-110"
+          style={{
+            background: `${item.accent}15`,
+            border: `1px solid ${item.accent}30`,
+          }}
+          aria-hidden="true"
+        >
+          <Icon size={index === 0 ? 36 : 24} style={{ color: item.accent }} />
+        </div>
+        <span
+          className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
+          style={{
+            fontFamily: "'Playfair Display', serif",
+            fontSize: index === 0 ? "1.1rem" : "0.85rem",
+          }}
+        >
+          {item.label}
+        </span>
+      </div>
+
+      {/* Hover glow */}
+      <motion.div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle at center, ${item.accent}08 0%, transparent 70%)`,
+        }}
+        aria-hidden="true"
+      />
+    </motion.div>
+  );
+}
+
+// ── Gallery Section ───────────────────────────────────────
+export default function Gallery() {
+  const handleBookNow = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.querySelector("#booking")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <section
+      id="gallery"
+      className="relative py-24 lg:py-32 bg-[#1A1A1A] overflow-hidden"
+      aria-label="Gallery section"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-14">
+          <motion.p
+            className="section-tag mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            ✦ The Vibe
+          </motion.p>
+          <motion.h2
+            className="font-playfair text-4xl sm:text-5xl font-bold text-[#F5F0E8] mb-4"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Inside{" "}
+            <span className="text-[#C9A84C]">Mr. Ali's</span>
+          </motion.h2>
+          <motion.div
+            className="gold-divider max-w-xs mx-auto mt-4"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          />
+          <motion.p
+            className="text-[#F5F0E8]/55 text-base max-w-lg mx-auto mt-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            A warm, electrifying corner of Kuta where music meets mastery.
+          </motion.p>
+        </div>
+
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+          {GALLERY_ITEMS.map((item, index) => (
+            <GalleryCard key={item.label} item={item} index={index} />
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <p className="text-[#F5F0E8]/40 text-sm mb-4">
+            Come experience it yourself — no photo does it justice.
+          </p>
+          <a
+            href="#booking"
+            onClick={handleBookNow}
+            className="inline-flex items-center px-7 py-3 bg-transparent text-[#C9A84C] font-semibold text-sm rounded-sm border border-[#C9A84C]/40 hover:bg-[#C9A84C]/5 hover:border-[#C9A84C] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A84C] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1A1A1A] tracking-wide"
+            aria-label="Book your appointment at Mr. Ali Barbershop"
+          >
+            Book Your Appointment →
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
