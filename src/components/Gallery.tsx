@@ -132,7 +132,22 @@ export default function Gallery() {
       className="relative py-24 lg:py-32 bg-[#1A1A1A] overflow-hidden"
       aria-label="Gallery section"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background image overlay */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ filter: "grayscale(100%)", opacity: 0.05 }}
+        whileInView={{ filter: "grayscale(0%)", opacity: 0.15 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5 }}
+        style={{
+          backgroundImage: `url("https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fae365e3b71674e41aa7a99a9d8ff58fa?format=webp&width=800&height=1200")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-14">
           <motion.p
