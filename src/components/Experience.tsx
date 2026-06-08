@@ -74,21 +74,6 @@ export default function Experience() {
       className="relative py-24 lg:py-32 bg-[#232323] overflow-hidden"
       aria-label="The Mr. Ali experience"
     >
-      {/* Background image overlay */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ filter: "grayscale(100%)", opacity: 0.2 }}
-        whileInView={{ filter: "grayscale(0%)", opacity: 0.35 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5 }}
-        style={{
-          backgroundImage: `url("https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F71a7dc28cf5f4d0db4b32ad268aaad5d?format=webp&width=800&height=1200")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        aria-hidden="true"
-      />
-
       {/* Decorative background */}
       <div
         className="absolute inset-0 z-0 opacity-30"
