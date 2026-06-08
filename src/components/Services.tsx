@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Scissors, Star, Droplets, Wind, Zap, Heart, Smile, Sparkles } from "lucide-react";
 
 // ── Service Data ──────────────────────────────────────────
@@ -11,7 +10,6 @@ const SERVICES = [
       "Precision cut tailored to your face shape and style, finished with expert razor detailing for crisp edges.",
     price: "Rp 65.000",
     tag: "Most Popular",
-    image: "https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fc370879711d64909a35243ad88a86aa4?format=webp&width=800&height=1200",
   },
   {
     icon: Star,
@@ -20,7 +18,6 @@ const SERVICES = [
       "Ali's signature 0-fade — the cut he's mastered over years of craft. Includes wash, hot towel, and face lotion.",
     price: "Rp 85.000",
     tag: "Signature",
-    image: null,
   },
   {
     icon: Droplets,
@@ -29,7 +26,6 @@ const SERVICES = [
       "Traditional shave with aromatic hot towel prep, precision razor work, and a soothing face lotion finish.",
     price: "Rp 75.000",
     tag: "Premium",
-    image: null,
   },
   {
     icon: Wind,
@@ -38,7 +34,6 @@ const SERVICES = [
       "Classic scissor technique for natural, textured results with a soft, lived-in finish that holds its shape.",
     price: "Rp 60.000",
     tag: null,
-    image: "https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fa4876edc593542d5aaeef07afcb45c86?format=webp&width=800&height=1200",
   },
   {
     icon: Zap,
@@ -47,7 +42,6 @@ const SERVICES = [
       "Sharp edges, clean lines, and razor-precise finish that frames your face with confidence.",
     price: "Rp 65.000",
     tag: null,
-    image: null,
   },
   {
     icon: Sparkles,
@@ -56,7 +50,6 @@ const SERVICES = [
       "Full wash with premium shampoo, deep conditioning treatment, and gentle scalp care for healthy hair.",
     price: "Rp 45.000",
     tag: null,
-    image: null,
   },
   {
     icon: Heart,
@@ -65,7 +58,6 @@ const SERVICES = [
       "Deeply relaxing scalp massage using warm oils. Included with select services or as a standalone treat.",
     price: "Rp 40.000",
     tag: "Fan Favourite",
-    image: null,
   },
   {
     icon: Smile,
@@ -74,7 +66,6 @@ const SERVICES = [
       "Gentle, patient, and fun cuts for the little ones. Ali has a magic touch that keeps kids calm and smiling.",
     price: "Rp 50.000",
     tag: null,
-    image: null,
   },
 ];
 
@@ -87,7 +78,6 @@ function ServiceCard({
   index: number;
 }) {
   const Icon = service.icon;
-  const [isImageColor, setIsImageColor] = useState(false);
 
   const handleBookThis = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -106,27 +96,11 @@ function ServiceCard({
     >
       {/* Tag */}
       {service.tag && (
-        <div className="absolute top-4 right-4 z-20">
+        <div className="absolute top-4 right-4">
           <span className="text-[10px] font-semibold uppercase tracking-widest text-[#1A1A1A] bg-[#C9A84C] px-2 py-0.5 rounded-full">
             {service.tag}
           </span>
         </div>
-      )}
-
-      {/* Image */}
-      {service.image && (
-        <img
-          src={service.image}
-          alt={service.name}
-          className="w-full h-64 object-cover rounded-sm cursor-pointer transition-all duration-300 relative z-0"
-          style={{
-            filter: isImageColor ? "grayscale(0%)" : "grayscale(100%)",
-            objectPosition: "center 30%",
-          }}
-          onMouseEnter={() => setIsImageColor(true)}
-          onMouseLeave={() => setIsImageColor(false)}
-          onClick={() => setIsImageColor(!isImageColor)}
-        />
       )}
 
       {/* Icon */}
