@@ -74,7 +74,7 @@ export default function BookingCTA() {
         viewport={{ once: true }}
         transition={{ duration: 1.5 }}
         style={{
-          backgroundImage: `url("https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fe87f3653557040f599e23387b756f458?format=webp&width=800&height=1200")`,
+          backgroundImage: `url("/come-see-us-bg.png")`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
