@@ -154,12 +154,12 @@ export default function Reviews() {
 
       if (sectionTop < windowHeight && sectionTop + sectionHeight > 0) {
         const progress = 1 - sectionTop / windowHeight;
-        const opacity = Math.max(0.27, Math.min(1, 0.27 + progress * 0.73));
+        const opacity = Math.max(0.27, Math.min(0.5, 0.27 + progress * 0.23));
         setImageOpacity(opacity);
       } else if (sectionTop >= windowHeight) {
         setImageOpacity(0.27);
       } else {
-        setImageOpacity(1);
+        setImageOpacity(0.5);
       }
     };
 
