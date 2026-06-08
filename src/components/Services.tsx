@@ -20,7 +20,7 @@ const SERVICES = [
       "Ali's signature 0-fade — the cut he's mastered over years of craft. Includes wash, hot towel, and face lotion.",
     price: "Rp 85.000",
     tag: "Signature",
-    image: null,
+    image: "https://images.pexels.com/photos/18503633/pexels-photo-18503633.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     icon: Droplets,
@@ -29,7 +29,7 @@ const SERVICES = [
       "Traditional shave with aromatic hot towel prep, precision razor work, and a soothing face lotion finish.",
     price: "Rp 75.000",
     tag: "Premium",
-    image: null,
+    image: "https://images.pexels.com/photos/2521978/pexels-photo-2521978.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     icon: Wind,
@@ -47,7 +47,7 @@ const SERVICES = [
       "Sharp edges, clean lines, and razor-precise finish that frames your face with confidence.",
     price: "Rp 65.000",
     tag: null,
-    image: null,
+    image: "https://images.pexels.com/photos/12464841/pexels-photo-12464841.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     icon: Sparkles,
@@ -56,7 +56,7 @@ const SERVICES = [
       "Full wash with premium shampoo, deep conditioning treatment, and gentle scalp care for healthy hair.",
     price: "Rp 45.000",
     tag: null,
-    image: null,
+    image: "https://images.pexels.com/photos/8834074/pexels-photo-8834074.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     icon: Heart,
@@ -65,7 +65,7 @@ const SERVICES = [
       "Deeply relaxing scalp massage using warm oils. Included with select services or as a standalone treat.",
     price: "Rp 40.000",
     tag: "Fan Favourite",
-    image: null,
+    image: "https://images.pexels.com/photos/23349902/pexels-photo-23349902.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     icon: Smile,
@@ -74,7 +74,7 @@ const SERVICES = [
       "Gentle, patient, and fun cuts for the little ones. Ali has a magic touch that keeps kids calm and smiling.",
     price: "Rp 50.000",
     tag: null,
-    image: null,
+    image: "https://images.pexels.com/photos/7697358/pexels-photo-7697358.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
 ];
 
