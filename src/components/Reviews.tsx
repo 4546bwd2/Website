@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Star, Quote } from "lucide-react";
-import backgroundImage from "/image_2026-06-08_210018748_(1).png";
+
+const backgroundImage = "/reviews-bg.png";
 
 // ── Review Data ───────────────────────────────────────────
 const REVIEWS = [
