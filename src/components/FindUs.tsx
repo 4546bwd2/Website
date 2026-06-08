@@ -15,14 +15,23 @@ export default function FindUs() {
       className="relative py-24 lg:py-32 bg-[#1A1A1A] overflow-hidden"
       aria-label="Find us section — location and map"
     >
+      {/* Background image overlay */}
+      <div
+        className="absolute inset-0 z-0 opacity-8 bg-cover bg-center"
+        style={{
+          backgroundImage: `url("https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F867f6e776dc54dd4bbc5a9be07368278?format=webp&width=800&height=1200")`,
+        }}
+        aria-hidden="true"
+      />
+
       {/* Top border */}
       <div
-        className="absolute top-0 left-0 right-0 h-px opacity-30"
+        className="absolute top-0 left-0 right-0 h-px z-10 opacity-30"
         style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
           <motion.p
