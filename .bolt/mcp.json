@@ -1,3 +1,7 @@
 {
-  "mcpServers": {}
+  "mcpServers": {
+    "higgsfield_ai": {
+      "enabled": false
+    }
+  }
 }
