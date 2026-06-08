@@ -11,7 +11,7 @@ const SERVICES = [
       "Precision cut tailored to your face shape and style, finished with expert razor detailing for crisp edges.",
     price: "Rp 65.000",
     tag: "Most Popular",
-    image: null,
+    image: "https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fc370879711d64909a35243ad88a86aa4?format=webp&width=800&height=1200",
   },
   {
     icon: Star,
