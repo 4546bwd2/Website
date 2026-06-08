@@ -106,7 +106,7 @@ function ServiceCard({
     >
       {/* Tag */}
       {service.tag && (
-        <div className="absolute top-4 right-4">
+        <div className="absolute top-4 right-4 z-20">
           <span className="text-[10px] font-semibold uppercase tracking-widest text-[#1A1A1A] bg-[#C9A84C] px-2 py-0.5 rounded-full">
             {service.tag}
           </span>
@@ -118,7 +118,7 @@ function ServiceCard({
         <img
           src={service.image}
           alt={service.name}
-          className="w-full h-40 object-cover rounded-sm cursor-pointer transition-all duration-300"
+          className="w-full h-64 object-cover rounded-sm cursor-pointer transition-all duration-300 relative z-0"
           style={{
             filter: isImageColor ? "grayscale(0%)" : "grayscale(100%)",
             objectPosition: "center 30%",
