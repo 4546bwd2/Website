@@ -132,6 +132,13 @@ export default function Gallery() {
       className="relative py-24 lg:py-32 bg-[#1A1A1A] overflow-hidden"
       aria-label="Gallery section"
     >
+      {/* Top border */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px z-10 opacity-30"
+        style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
+        aria-hidden="true"
+      />
+
       {/* Background image overlay */}
       <motion.div
         className="absolute inset-0 z-0"
