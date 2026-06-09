@@ -91,7 +91,7 @@ function GalleryCard({
 
       {/* Card image for Precision Fades */}
       {isPrecisionFades && (
-        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 opacity-[0.5] group-hover:opacity-100 transition-opacity duration-300">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fce7727657b304c9b871c4bdd08b1e7f7?format=webp&width=800&height=1200"
             alt="Precision Fades"
@@ -102,7 +102,7 @@ function GalleryCard({
 
       {/* Card image for Karaoke Sessions */}
       {isKaraokeSessions && (
-        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 opacity-[0.5] group-hover:opacity-100 transition-opacity duration-300">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Ff905a7558a8b4d93a4eaef3bca69b8be?format=webp&width=800&height=1200"
             alt="Karaoke Sessions"
@@ -114,7 +114,7 @@ function GalleryCard({
 
       {/* Card image for Sharp Edges */}
       {isSharpEdges && (
-        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 opacity-[0.5] group-hover:opacity-100 transition-opacity duration-300">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F60f8f998494b47cf9782189cd6db27a7?format=webp&width=800&height=1200"
             alt="Sharp Edges"
@@ -126,7 +126,7 @@ function GalleryCard({
 
       {/* Card image for Hot Towel Shaves */}
       {isHotTowelShaves && (
-        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 opacity-[0.5] group-hover:opacity-100 transition-opacity duration-300">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F5af069ee0abb4cb3a269408dcab53a8d?format=webp&width=800&height=1200"
             alt="Hot Towel Shaves"
@@ -138,7 +138,7 @@ function GalleryCard({
 
       {/* Card image for 5-Star Results */}
       {isFiveStarResults && (
-        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 opacity-[0.5] group-hover:opacity-100 transition-opacity duration-300">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fd646d1ed74054f54bc2363ac3b884bb0?format=webp&width=800&height=1200"
             alt="5-Star Results"
