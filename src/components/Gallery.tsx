@@ -156,7 +156,7 @@ function GalleryCard({
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fbfed1a1701bf4fd8b398215c434b7baa?format=webp&width=800&height=1200"
             alt="Happy Customers"
             className="w-full h-full object-cover object-center"
-            style={{ objectPosition: "center 20%" }}
+            style={{ objectPosition: "center 35%" }}
           />
         </div>
       )}
