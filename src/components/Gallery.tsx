@@ -56,6 +56,11 @@ function GalleryCard({
   index: number;
 }) {
   const Icon = item.icon;
+  const isPrecisionFades = item.label === "Precision Fades";
+  const isKaraokeSessions = item.label === "Karaoke Sessions";
+  const isSharpEdges = item.label === "Sharp Edges";
+  const isHotTowelShaves = item.label === "Hot Towel Shaves";
+  const isFiveStarResults = item.label === "5-Star Results";
 
   return (
     <motion.div
@@ -84,8 +89,67 @@ function GalleryCard({
         aria-hidden="true"
       />
 
+      {/* Card image for Precision Fades */}
+      {isPrecisionFades && (
+        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fce7727657b304c9b871c4bdd08b1e7f7?format=webp&width=800&height=1200"
+            alt="Precision Fades"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+
+      {/* Card image for Karaoke Sessions */}
+      {isKaraokeSessions && (
+        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Ff905a7558a8b4d93a4eaef3bca69b8be?format=webp&width=800&height=1200"
+            alt="Karaoke Sessions"
+            className="w-full h-full object-cover object-center"
+            style={{ objectPosition: "center 30%" }}
+          />
+        </div>
+      )}
+
+      {/* Card image for Sharp Edges */}
+      {isSharpEdges && (
+        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F60f8f998494b47cf9782189cd6db27a7?format=webp&width=800&height=1200"
+            alt="Sharp Edges"
+            className="w-full h-full object-cover object-center"
+            style={{ objectPosition: "center 50%" }}
+          />
+        </div>
+      )}
+
+      {/* Card image for Hot Towel Shaves */}
+      {isHotTowelShaves && (
+        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F5af069ee0abb4cb3a269408dcab53a8d?format=webp&width=800&height=1200"
+            alt="Hot Towel Shaves"
+            className="w-full h-full object-cover object-center"
+            style={{ objectPosition: "35% 20%" }}
+          />
+        </div>
+      )}
+
+      {/* Card image for 5-Star Results */}
+      {isFiveStarResults && (
+        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fd646d1ed74054f54bc2363ac3b884bb0?format=webp&width=800&height=1200"
+            alt="5-Star Results"
+            className="w-full h-full object-cover object-center"
+            style={{ objectPosition: "center 40%" }}
+          />
+        </div>
+      )}
+
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6">
+      <div className={`absolute inset-0 flex ${(isPrecisionFades || isKaraokeSessions || isSharpEdges || isHotTowelShaves || isFiveStarResults) ? 'flex-col items-start justify-start p-4' : 'flex-col items-center justify-center gap-3 p-6'}`}>
         <div
           className="p-4 rounded-full transition-transform duration-300 group-hover:scale-110"
           style={{
@@ -96,16 +160,33 @@ function GalleryCard({
         >
           <Icon size={index === 0 ? 36 : 24} style={{ color: item.accent }} />
         </div>
-        <span
-          className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
-          style={{
-            fontFamily: "'Playfair Display', serif",
-            fontSize: index === 0 ? "1.1rem" : "0.85rem",
-          }}
-        >
-          {item.label}
-        </span>
+        {!isPrecisionFades && !isKaraokeSessions && !isSharpEdges && !isHotTowelShaves && !isFiveStarResults && (
+          <span
+            className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: index === 0 ? "1.1rem" : "0.85rem",
+            }}
+          >
+            {item.label}
+          </span>
+        )}
       </div>
+
+      {/* Label for Precision Fades, Karaoke Sessions, Sharp Edges, Hot Towel Shaves & 5-Star Results - centered */}
+      {(isPrecisionFades || isKaraokeSessions || isSharpEdges || isHotTowelShaves || isFiveStarResults) && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span
+            className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "1.1rem",
+            }}
+          >
+            {item.label}
+          </span>
+        </div>
+      )}
 
       {/* Hover glow */}
       <motion.div
