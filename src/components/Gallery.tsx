@@ -57,6 +57,7 @@ function GalleryCard({
 }) {
   const Icon = item.icon;
   const isPrecisionFades = item.label === "Precision Fades";
+  const isKaraokeSessions = item.label === "Karaoke Sessions";
 
   return (
     <motion.div
@@ -96,8 +97,20 @@ function GalleryCard({
         </div>
       )}
 
+      {/* Card image for Karaoke Sessions */}
+      {isKaraokeSessions && (
+        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Ff905a7558a8b4d93a4eaef3bca69b8be?format=webp&width=800&height=1200"
+            alt="Karaoke Sessions"
+            className="w-full h-full object-cover object-center"
+            style={{ objectPosition: "center 30%" }}
+          />
+        </div>
+      )}
+
       {/* Content */}
-      <div className={`absolute inset-0 flex ${isPrecisionFades ? 'flex-col items-start justify-start p-4' : 'flex-col items-center justify-center gap-3 p-6'}`}>
+      <div className={`absolute inset-0 flex ${(isPrecisionFades || isKaraokeSessions) ? 'flex-col items-start justify-start p-4' : 'flex-col items-center justify-center gap-3 p-6'}`}>
         <div
           className="p-4 rounded-full transition-transform duration-300 group-hover:scale-110"
           style={{
@@ -108,7 +121,7 @@ function GalleryCard({
         >
           <Icon size={index === 0 ? 36 : 24} style={{ color: item.accent }} />
         </div>
-        {!isPrecisionFades && (
+        {!isPrecisionFades && !isKaraokeSessions && (
           <span
             className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
             style={{
@@ -121,8 +134,8 @@ function GalleryCard({
         )}
       </div>
 
-      {/* Label for Precision Fades - centered */}
-      {isPrecisionFades && (
+      {/* Label for Precision Fades & Karaoke Sessions - centered */}
+      {(isPrecisionFades || isKaraokeSessions) && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span
             className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
