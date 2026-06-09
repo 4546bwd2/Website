@@ -56,6 +56,7 @@ function GalleryCard({
   index: number;
 }) {
   const Icon = item.icon;
+  const isPrecisionFades = item.label === "Precision Fades";
 
   return (
     <motion.div
@@ -84,8 +85,19 @@ function GalleryCard({
         aria-hidden="true"
       />
 
+      {/* Card image for Precision Fades */}
+      {isPrecisionFades && (
+        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fce7727657b304c9b871c4bdd08b1e7f7?format=webp&width=800&height=1200"
+            alt="Precision Fades"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+
       {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6">
+      <div className={`absolute inset-0 flex ${isPrecisionFades ? 'flex-col items-start justify-start p-4' : 'flex-col items-center justify-center gap-3 p-6'}`}>
         <div
           className="p-4 rounded-full transition-transform duration-300 group-hover:scale-110"
           style={{
@@ -96,16 +108,33 @@ function GalleryCard({
         >
           <Icon size={index === 0 ? 36 : 24} style={{ color: item.accent }} />
         </div>
-        <span
-          className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
-          style={{
-            fontFamily: "'Playfair Display', serif",
-            fontSize: index === 0 ? "1.1rem" : "0.85rem",
-          }}
-        >
-          {item.label}
-        </span>
+        {!isPrecisionFades && (
+          <span
+            className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: index === 0 ? "1.1rem" : "0.85rem",
+            }}
+          >
+            {item.label}
+          </span>
+        )}
       </div>
+
+      {/* Label for Precision Fades - centered */}
+      {isPrecisionFades && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <span
+            className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "1.1rem",
+            }}
+          >
+            {item.label}
+          </span>
+        </div>
+      )}
 
       {/* Hover glow */}
       <motion.div
