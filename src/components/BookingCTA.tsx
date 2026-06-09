@@ -66,21 +66,6 @@ export default function BookingCTA() {
       className="relative py-24 lg:py-32 bg-[#232323] overflow-hidden"
       aria-label="Book an appointment or contact us"
     >
-      {/* Background image overlay */}
-      <motion.div
-        className="absolute inset-0 z-0"
-        initial={{ filter: "grayscale(100%)", opacity: 0.05 }}
-        whileInView={{ filter: "grayscale(0%)", opacity: 0.15 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5 }}
-        style={{
-          backgroundImage: `url("/come-see-us-bg.png")`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        aria-hidden="true"
-      />
-
       {/* Background effects */}
       <div
         className="absolute inset-0 z-0"
