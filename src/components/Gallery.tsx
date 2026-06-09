@@ -117,7 +117,7 @@ function GalleryCard({
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F60f8f998494b47cf9782189cd6db27a7?format=webp&width=800&height=1200"
             alt="Sharp Edges"
             className="w-full h-full object-cover object-center"
-            style={{ objectPosition: "center top" }}
+            style={{ objectPosition: "center 50%" }}
           />
         </div>
       )}
