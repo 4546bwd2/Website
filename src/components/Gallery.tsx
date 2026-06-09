@@ -61,6 +61,7 @@ function GalleryCard({
   const isSharpEdges = item.label === "Sharp Edges";
   const isHotTowelShaves = item.label === "Hot Towel Shaves";
   const isFiveStarResults = item.label === "5-Star Results";
+  const isHappyCustomers = item.label === "Happy Customers";
 
   return (
     <motion.div
@@ -148,8 +149,20 @@ function GalleryCard({
         </div>
       )}
 
+      {/* Card image for Happy Customers */}
+      {isHappyCustomers && (
+        <div className="absolute inset-0 opacity-[0.5] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fbfed1a1701bf4fd8b398215c434b7baa?format=webp&width=800&height=1200"
+            alt="Happy Customers"
+            className="w-full h-full object-cover object-center"
+            style={{ objectPosition: "center 20%" }}
+          />
+        </div>
+      )}
+
       {/* Content */}
-      <div className={`absolute inset-0 flex ${(isPrecisionFades || isKaraokeSessions || isSharpEdges || isHotTowelShaves || isFiveStarResults) ? 'flex-col items-start justify-start p-4' : 'flex-col items-center justify-center gap-3 p-6'}`}>
+      <div className={`absolute inset-0 flex ${(isPrecisionFades || isKaraokeSessions || isSharpEdges || isHotTowelShaves || isFiveStarResults || isHappyCustomers) ? (isHappyCustomers ? 'flex-col items-start justify-start p-4' : 'flex-col items-start justify-start p-4') : 'flex-col items-center justify-center gap-3 p-6'}`}>
         <div
           className="p-4 rounded-full transition-transform duration-300 group-hover:scale-110"
           style={{
@@ -160,7 +173,7 @@ function GalleryCard({
         >
           <Icon size={index === 0 ? 36 : 24} style={{ color: item.accent }} />
         </div>
-        {!isPrecisionFades && !isKaraokeSessions && !isSharpEdges && !isHotTowelShaves && !isFiveStarResults && (
+        {!isPrecisionFades && !isKaraokeSessions && !isSharpEdges && !isHotTowelShaves && !isFiveStarResults && !isHappyCustomers && (
           <span
             className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
             style={{
@@ -173,8 +186,8 @@ function GalleryCard({
         )}
       </div>
 
-      {/* Label for Precision Fades, Karaoke Sessions, Sharp Edges, Hot Towel Shaves & 5-Star Results - centered */}
-      {(isPrecisionFades || isKaraokeSessions || isSharpEdges || isHotTowelShaves || isFiveStarResults) && (
+      {/* Label for Precision Fades, Karaoke Sessions, Sharp Edges, Hot Towel Shaves, 5-Star Results & Happy Customers - centered */}
+      {(isPrecisionFades || isKaraokeSessions || isSharpEdges || isHotTowelShaves || isFiveStarResults || isHappyCustomers) && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span
             className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
