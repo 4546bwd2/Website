@@ -143,7 +143,7 @@ function GalleryCard({
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2Fd646d1ed74054f54bc2363ac3b884bb0?format=webp&width=800&height=1200"
             alt="5-Star Results"
             className="w-full h-full object-cover object-center"
-            style={{ objectPosition: "center 30%" }}
+            style={{ objectPosition: "center 40%" }}
           />
         </div>
       )}
