@@ -59,6 +59,7 @@ function GalleryCard({
   const isPrecisionFades = item.label === "Precision Fades";
   const isKaraokeSessions = item.label === "Karaoke Sessions";
   const isSharpEdges = item.label === "Sharp Edges";
+  const isHotTowelShaves = item.label === "Hot Towel Shaves";
 
   return (
     <motion.div
@@ -122,8 +123,20 @@ function GalleryCard({
         </div>
       )}
 
+      {/* Card image for Hot Towel Shaves */}
+      {isHotTowelShaves && (
+        <div className="absolute inset-0 opacity-[0.27] group-hover:opacity-100 transition-opacity duration-300">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F5af069ee0abb4cb3a269408dcab53a8d?format=webp&width=800&height=1200"
+            alt="Hot Towel Shaves"
+            className="w-full h-full object-cover object-center"
+            style={{ objectPosition: "35% center" }}
+          />
+        </div>
+      )}
+
       {/* Content */}
-      <div className={`absolute inset-0 flex ${(isPrecisionFades || isKaraokeSessions || isSharpEdges) ? 'flex-col items-start justify-start p-4' : 'flex-col items-center justify-center gap-3 p-6'}`}>
+      <div className={`absolute inset-0 flex ${(isPrecisionFades || isKaraokeSessions || isSharpEdges || isHotTowelShaves) ? 'flex-col items-start justify-start p-4' : 'flex-col items-center justify-center gap-3 p-6'}`}>
         <div
           className="p-4 rounded-full transition-transform duration-300 group-hover:scale-110"
           style={{
@@ -134,7 +147,7 @@ function GalleryCard({
         >
           <Icon size={index === 0 ? 36 : 24} style={{ color: item.accent }} />
         </div>
-        {!isPrecisionFades && !isKaraokeSessions && !isSharpEdges && (
+        {!isPrecisionFades && !isKaraokeSessions && !isSharpEdges && !isHotTowelShaves && (
           <span
             className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
             style={{
@@ -147,8 +160,8 @@ function GalleryCard({
         )}
       </div>
 
-      {/* Label for Precision Fades, Karaoke Sessions & Sharp Edges - centered */}
-      {(isPrecisionFades || isKaraokeSessions || isSharpEdges) && (
+      {/* Label for Precision Fades, Karaoke Sessions, Sharp Edges & Hot Towel Shaves - centered */}
+      {(isPrecisionFades || isKaraokeSessions || isSharpEdges || isHotTowelShaves) && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span
             className="text-[#F5F0E8]/70 text-sm font-semibold text-center tracking-wide group-hover:text-[#F5F0E8] transition-colors duration-300"
