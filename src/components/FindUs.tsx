@@ -19,8 +19,8 @@ export default function FindUs() {
       <div
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url("https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F867f6e776dc54dd4bbc5a9be07368278?format=webp&width=800&height=1200")`,
-          opacity: 0.25,
+          backgroundImage: `url("https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F7d37ca3a259347d18a35d82bc06c9eb0?format=webp&width=800&height=1200")`,
+          opacity: 0.5,
         }}
         aria-hidden="true"
       />
