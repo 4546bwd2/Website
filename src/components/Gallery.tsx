@@ -181,6 +181,7 @@ function GalleryCard({
             style={{
               fontFamily: "'Playfair Display', serif",
               fontSize: "1.1rem",
+              textShadow: "0 2px 8px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.6)",
             }}
           >
             {item.label}
