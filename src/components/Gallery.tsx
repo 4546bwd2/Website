@@ -130,7 +130,7 @@ function GalleryCard({
             src="https://cdn.builder.io/api/v1/image/assets%2F449077f0aecf4345b14dd3a3853a5f94%2F5af069ee0abb4cb3a269408dcab53a8d?format=webp&width=800&height=1200"
             alt="Hot Towel Shaves"
             className="w-full h-full object-cover object-center"
-            style={{ objectPosition: "35% center" }}
+            style={{ objectPosition: "35% 20%" }}
           />
         </div>
       )}
