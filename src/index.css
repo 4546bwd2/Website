@@ -102,16 +102,16 @@ body {
 .barber-pole-anim {
   background: repeating-linear-gradient(
     45deg,
-    #C9A84C,
-    #C9A84C 8px,
-    #1A1A1A 8px,
-    #1A1A1A 16px,
-    #D94F3D 16px,
-    #D94F3D 24px,
-    #1A1A1A 24px,
-    #1A1A1A 32px
+    #E2C47A,
+    #E2C47A 10px,
+    #1A1A1A 10px,
+    #1A1A1A 20px,
+    #D94F3D 20px,
+    #D94F3D 30px,
+    #1A1A1A 30px,
+    #1A1A1A 40px
   );
-  animation: barberpole 1.5s linear infinite;
+  animation: barberpole 2s linear infinite;
 }
 
 /* Typing dots */
