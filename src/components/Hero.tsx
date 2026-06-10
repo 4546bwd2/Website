@@ -15,16 +15,18 @@ function AnimatedBarberPole() {
       <div className="w-14 h-6 bg-gradient-to-b from-[#C9A84C] to-[#A07830] rounded-t-full shadow-lg" />
       
       {/* Pole body with stripes */}
-      <div className="w-10 h-64 relative overflow-hidden rounded-sm shadow-xl border border-[#C9A84C]/30">
-        {/* Glass overlay */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/5 via-white/10 to-transparent pointer-events-none" />
+      <div className="w-10 h-64 relative overflow-hidden rounded-sm shadow-2xl border border-[#C9A84C]/40">
         {/* Animated stripes */}
         <div
-          className="barber-pole-anim absolute inset-0 opacity-90"
+          className="barber-pole-anim absolute inset-0 opacity-95"
           style={{
             backgroundSize: "60px 60px",
           }}
         />
+        {/* Glass overlay */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-white/8 via-white/15 to-white/5 pointer-events-none" />
+        {/* Edge shine */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-l from-white/10 via-transparent to-transparent pointer-events-none" />
       </div>
       
       {/* Pole cap bottom */}
